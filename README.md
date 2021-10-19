@@ -1,1 +1,3 @@
-raspistill ‒w 480 ‒h 360 ‒o taken201005.jpg
+cd darknet
+leafpad camera_darknet.sh
+sh camera_darknet.sh
