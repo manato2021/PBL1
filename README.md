@@ -5,7 +5,7 @@ import cv2 as cv
 
 fn = 'my_pic.jpg'
 
-with picamera.Picamera() as camera:
+with picamera.PiCamera() as camera:
 camera.resolution = (480,360)
 #準備
 camera.start_preview()
@@ -19,7 +19,7 @@ camera.capture(fn)
 ############
 
 #文字の取り込み
-from PIL Image
+from PIL import Image
 import sys
 
 import pyocr
