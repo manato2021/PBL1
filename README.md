@@ -24,6 +24,7 @@ if __name__ == '__main__':
             break
         if smile_count >= SMILE_JUDGE:
             smile_count = 0
+           talk.talk(f'
            import RPi.GPIO as GPIO
            import time
            pin = 21
@@ -35,3 +36,4 @@ if __name__ == '__main__':
            time.sleep(3)
            p.stop()
            GPIO.cleanup()
+           ')
