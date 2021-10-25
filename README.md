@@ -87,3 +87,37 @@ print(line_andword_boxes)
 ####画像に含まれる文字にpeopeleがあればスピーカーを鳴らす
 
 
+
+
+import time
+import RPi.GPIO as GPIO
+import pygame.mixer
+
+PLAY_TIME = 19
+SLEEPTIME = 1
+SENSOR_PIN = 18
+
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(SENSOR_PIN, GPIO.IN)
+
+pygame.mixer.init()
+pygame.mixer.music.load("Bell.mp3")
+pygame.mixer.music.play(-1)
+
+try:
+    while True:
+        print (GPIO.input(SENSOR_PIN))
+        if(GPIO.input(SENSOR_PIN) == GPIO.HIGH):
+            pygame.mixer.music.unpause()
+            time.sleep(PLAY_TIME)
+        if(GPIO.input(SENSOR_PIN) == GPIO.LOW):
+            pygame.mixer.music.pause()
+        time.sleep(SLEEPTIME)
+
+except KeyboardInterrupt:
+    pygame.mixer.music.stop()
+    pygame.mixer.quit()
+    pygame.quit()
+    GPIO.cleanup()
+
+
